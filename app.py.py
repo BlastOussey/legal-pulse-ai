@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -11,6 +12,25 @@ except Exception:
     st.error("Missing Gemini API Key. Please add it to your Streamlit Secrets.")
 
 st.set_page_config(page_title="LegalPulse AI", layout="wide")
+
+# --- SIDEBAR DISCLAIMER ---
+with st.sidebar:
+    st.title("⚖️ LegalPulse Guard")
+    st.info("""
+    **Professional Disclosure:**
+    This tool uses AI to assist in identifying patterns and contradictions. 
+    It is a **supplement** to, not a replacement for, human legal review.
+    """)
+    
+    st.warning("""
+    **User Responsibility:**
+    In accordance with Model Rule 1.1, attorneys must independently 
+    verify all AI-generated citations and factual claims before 
+    use in any legal proceeding.
+    """)
+    
+    st.markdown("---")
+    st.caption("🔒 Data is processed via secure, encrypted API and is not used for model training.")
 
 st.title("⚖️ LegalPulse AI: Transcript Analysis")
 st.markdown("---")
@@ -52,4 +72,5 @@ if uploaded_file:
     ])
     fig = px.timeline(df, x_start="Start", x_end="End", y="Event", color="Type")
     st.plotly_chart(fig, use_container_width=True)
+
 
