@@ -26,7 +26,8 @@ if uploaded_file:
         with st.spinner("Gemini is analyzing the testimony..."):
             try:
                 # Initialize the Gemini model
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                # CHANGE THIS LINE
+                model = genai.GenerativeModel('gemini-2.5-flash')  # Use the current 2026 model
                 
                 # Convert file to text for the AI
                 content = uploaded_file.read().decode("utf-8") if uploaded_file.type == "text/plain" else "Processing PDF..."
@@ -51,3 +52,4 @@ if uploaded_file:
     ])
     fig = px.timeline(df, x_start="Start", x_end="End", y="Event", color="Type")
     st.plotly_chart(fig, use_container_width=True)
+
