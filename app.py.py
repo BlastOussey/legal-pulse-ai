@@ -5,7 +5,7 @@ import plotly.express as px
 import google.generativeai as genai
 
 # This adds the logo to the top of your sidebar
-st.sidebar.image("logo.png", use_container_width=True)
+st.sidebar.image(""C:\Users\ouzin\OneDrive\Bureau\AI Business\logo.png"", use_container_width=True)
 
 # 1. SETUP: Securely get your API Key from Streamlit Secrets
 try:
@@ -75,6 +75,7 @@ if uploaded_file:
     ])
     fig = px.timeline(df, x_start="Start", x_end="End", y="Event", color="Type")
     st.plotly_chart(fig, use_container_width=True)
+
 
 
 
