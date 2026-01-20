@@ -6,7 +6,7 @@ import google.generativeai as genai
 
 # This adds the logo to the top of your sidebar
 st.sidebar.image("assets/logo.png", use_container_width=True)
-st.logo("logo.png", size="large")
+st.logo("assets/logo.png", size="large")
 # 1. SETUP: Securely get your API Key from Streamlit Secrets
 try:
     # This pulls the key from the "Secrets" dashboard we will set up next
@@ -75,6 +75,7 @@ if uploaded_file:
     ])
     fig = px.timeline(df, x_start="Start", x_end="End", y="Event", color="Type")
     st.plotly_chart(fig, use_container_width=True)
+
 
 
 
